@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>내 물건 팔기 - 호박마켓</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="detail-page-bg">
+  <form class="detail-shell" id="writeForm" novalidate>
+    <!-- Top Media Upload Area (modeled on Detail Page Carousel) -->
+    <section class="write-media-upload" id="uploadDropArea">
+      <div class="media-top-bar">
+        <a href="index.html" class="media-close-btn" aria-label="작성 취소 및 목록으로">✕</a>
+        <button type="submit" class="media-top-pill">작성 완료</button>
+      </div>
+
+      <img id="mainPreviewImg" class="preview-img" src="" alt="미리보기" style="display:none;" />
+
+      <label for="imageFileInput" class="upload-placeholder" id="uploadPlaceholder">
+        <div class="upload-icon-circle">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+            <circle cx="12" cy="13" r="4"></circle>
+          </svg>
+        </div>
+        <strong>상품 사진을 올려주세요</strong>
+        <span>클릭해서 이미지 선택 (최대 5장)</span>
+      </label>
+
+      <input type="file" id="imageFileInput" accept="image/*" multiple style="display:none;" />
+    </section>
+
+    <!-- Thumbnail Strip -->
+    <div class="write-thumb-strip" id="thumbStrip">
+      <label for="imageFileInput" class="thumb-add-btn">
+        <span style="font-size:18px;line-height:1;">+</span>
+        <span id="photoCountText">0/5</span>
+      </label>
+    </div>
+
+    <!-- Seller Profile Bar (modeled on Detail Page Seller Bar) -->
+    <section class="seller-bar">
+      <div class="seller-left">
+        <div class="seller-avatar" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+          </svg>
+        </div>
+        <div class="write-seller-edit">
+          <input
+            type="text"
+            id="sellerNameInput"
+            class="write-seller-input"
+            value="헤엄치는오리"
+            placeholder="닉네임"
+            aria-label="판매자 닉네임"
+          />
+          <input
+            type="text"
+            id="regionInput"
+            class="write-seller-input"
+            value="방이동"
+            placeholder="거래 동네"
+            aria-label="거래 희망 동네"
+          />
+        </div>
+      </div>
+
+      <div class="seller-manner">
+        <div class="manner-score-row">
+          <span>36.5°C</span>
+          <span class="manner-emoji">😊</span>
+        </div>
+        <span class="manner-label">매너온도</span>
+      </div>
+    </section>
+
+    <!-- Product Form Body (same hierarchy as Detail Body) -->
+    <section class="write-form-body">
+      <input
+        type="text"
+        id="titleInput"
+        class="inline-input-title"
+        placeholder="글 제목 (예: 그루퍼너 SJ mz-24 RC 조종기)"
+        required
+      />
+
+      <div class="write-meta-row">
+        <select id="categorySelect" class="write-select" aria-label="카테고리 선택"></select>
+      </div>
+
+      <div class="write-price-row">
+        <div class="price-input-wrap">
+          <input
+            type="number"
+            id="priceInput"
+            min="0"
+            step="100"
+            placeholder="가격을 입력해주세요"
+          />
+          <span class="price-unit">원</span>
+        </div>
+        <label class="free-check">
+          <input type="checkbox" id="isFreeCheck" />
+          <span>나눔</span>
+        </label>
+      </div>
+
+      <textarea
+        id="descInput"
+        class="write-textarea"
+        placeholder="올릴 게시글 내용을 작성해주세요. (판매 금지 물품은 게시가 제한될 수 있어요.)&#10;&#10;예: 구매 시기, 사용감, 구성품, 직거래 희망 장소 등"
+        required
+      ></textarea>
+    </section>
+
+    <!-- Bottom Submit Bar -->
+    <section class="write-footer-bar">
+      <a href="index.html" class="btn-secondary" style="display:inline-flex;align-items:center;justify-content:center;">취소</a>
+      <button type="submit" class="btn-chat-primary">등록하기</button>
+    </section>
+  </form>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="js/auth.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/write.js"></script>
+  <script src="js/antigravity.js"></script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>호박마켓 - 중고거래 매물 보기</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="header-top">
+        <a href="index.html" class="brand-logo" aria-label="호박마켓 홈">
+          <span class="brand-icon">🎃</span>
+          <span>호박</span>
+        </a>
+
+        <form class="search-bar" id="searchForm">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="물건이나 동네를 검색해보세요"
+            autocomplete="off"
+          />
+          <button type="submit" class="search-btn" aria-label="검색">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </button>
+        </form>
+
+        <div class="header-actions">
+          <a href="write.html" class="btn-write">+ 글쓰기</a>
+          <button type="button" class="btn-auth-login" id="btnOpenLogin">로그인</button>
+          <a href="mypage.html" class="user-nickname-pill" id="userNicknameBadge" style="display:none;" title="마이페이지로 이동"></a>
+          <button type="button" class="btn-auth-logout" id="btnLogout" style="display:none;">로그아웃</button>
+        </div>
+      </div>
+
+      <nav class="header-nav-tabs" id="navTabs" aria-label="카테고리 필터">
+        <button type="button" class="nav-pill" data-cat="전체">전체</button>
+        <button type="button" class="nav-pill active" data-cat="중고거래">중고거래</button>
+        <button type="button" class="nav-pill" data-cat="취미/게임/음반">취미/게임/음반</button>
+        <button type="button" class="nav-pill" data-cat="디지털기기">디지털기기</button>
+        <button type="button" class="nav-pill" data-cat="여성의류">여성의류</button>
+        <button type="button" class="nav-pill" data-cat="스포츠/레저">스포츠/레저</button>
+        <button type="button" class="nav-pill" data-cat="가구/인테리어">가구/인테리어</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="list-container">
+    <div class="list-heading-row">
+      <span class="list-heading-badge">호</span>
+      <h1 class="list-heading" id="listHeading">방이동 중고거래 매물 보기</h1>
+    </div>
+
+    <div class="filter-row">
+      <button type="button" class="filter-chip" id="btnResetFilters">전체 초기화</button>
+      <button type="button" class="filter-chip" id="btnOnlyAvailable">거래 가능 보기</button>
+      <button type="button" class="filter-chip" id="btnPopularSort">인기매물</button>
+    </div>
+
+    <div class="list-layout">
+      <div>
+        <section class="product-grid" id="productGrid" aria-label="상품 목록"></section>
+        <div class="pagination" id="pagination"></div>
+      </div>
+
+      <aside class="sidebar-box" aria-label="인기 검색어">
+        <h2 class="sidebar-title">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          인기 검색어
+        </h2>
+        <div class="keyword-list" id="keywordList"></div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="brand-logo">
+          <span class="brand-icon">🎃</span>
+          <span>호박</span>
+        </div>
+
+        <div class="footer-cols">
+          <div class="footer-col">
+            <h4>회사</h4>
+            <ul>
+              <li>회사 소개</li>
+              <li>호박비즈니스</li>
+              <li>채용</li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>서비스</h4>
+            <ul>
+              <li>중고거래</li>
+              <li>동네업체</li>
+              <li>호박페이</li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>문의</h4>
+            <ul>
+              <li>자주 묻는 질문</li>
+              <li>광고 문의</li>
+              <li>제휴 문의</li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>커뮤니티</h4>
+            <ul>
+              <li>운영정책</li>
+              <li>이용약관</li>
+              <li>개인정보처리방침</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>(주)호박마켓 · 대표자: 홍길동 · 사업자번호: 123-45-67890</div>
+        <div>주소: 서울특별시 송파구 방이동 호박타워 · 고객센터: 1544-0000</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/auth.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/list.js"></script>
+  <script src="js/antigravity.js"></script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>마이페이지 - 호박마켓</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="header-top">
+        <a href="index.html" class="brand-logo" aria-label="호박마켓 홈">
+          <span class="brand-icon">🎃</span>
+          <span>호박</span>
+        </a>
+
+        <div style="flex:1;"></div>
+
+        <div class="header-actions">
+          <a href="index.html" class="btn-auth-login">목록으로</a>
+          <a href="write.html" class="btn-write">+ 글쓰기</a>
+          <button type="button" class="btn-auth-login" id="btnOpenLogin">로그인</button>
+          <a href="mypage.html" class="user-nickname-pill" id="userNicknameBadge" style="display:none;" title="마이페이지"></a>
+          <button type="button" class="btn-auth-logout" id="btnLogout" style="display:none;">로그아웃</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="mypage-container">
+    <section class="mypage-profile-card" id="mypageProfileCard">
+      <div class="seller-left">
+        <div class="seller-avatar" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+          </svg>
+        </div>
+        <div>
+          <div class="seller-name" id="myNickname" style="font-size:18px;">로그인이 필요합니다</div>
+          <div class="seller-region" id="myMeta">로그인 후 내 활동 내역을 확인해보세요.</div>
+        </div>
+      </div>
+
+      <div class="seller-manner">
+        <div class="manner-score-row">
+          <span>36.5°C</span>
+          <span class="manner-emoji">😊</span>
+        </div>
+        <span class="manner-label">매너온도</span>
+      </div>
+    </section>
+
+    <div class="mypage-tabs" id="mypageTabs">
+      <button type="button" class="mypage-tab active" data-tab="posts">내가 쓴 글 (<span id="myPostsCount">0</span>)</button>
+      <button type="button" class="mypage-tab" data-tab="likes">좋아요한 상품 (<span id="myLikesCount">0</span>)</button>
+    </div>
+
+    <section class="product-grid" id="mypageGrid" aria-label="마이페이지 상품 목록"></section>
+  </main>
+
+  <script src="js/auth.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/mypage.js"></script>
+  <script src="js/antigravity.js"></script>
+</body>
+</html>

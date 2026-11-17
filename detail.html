@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>상품 상세 - 호박마켓</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="detail-page-bg">
+  <main class="detail-shell">
+    <!-- Top Image Carousel -->
+    <section class="detail-media" id="mediaCarousel">
+      <div class="media-top-bar">
+        <a href="index.html" class="media-close-btn" aria-label="목록으로 돌아가기">✕</a>
+        <a href="write.html" class="media-top-pill">+ 글쓰기</a>
+      </div>
+
+      <img id="carouselImg" src="" alt="상품 이미지" />
+
+      <button type="button" class="carousel-arrow prev" id="prevImgBtn" aria-label="이전 이미지">‹</button>
+      <button type="button" class="carousel-arrow next" id="nextImgBtn" aria-label="다음 이미지">›</button>
+
+      <div class="carousel-dots" id="carouselDots"></div>
+    </section>
+
+    <!-- Seller Profile Row -->
+    <section class="seller-bar">
+      <div class="seller-left">
+        <div class="seller-avatar" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+          </svg>
+        </div>
+        <div>
+          <div class="seller-name" id="sellerName">헤엄치는오리</div>
+          <div class="seller-region" id="sellerRegion">화정동, 대송동</div>
+        </div>
+      </div>
+
+      <div class="seller-manner">
+        <div class="manner-score-row">
+          <span id="mannerTemp">37.2°C</span>
+          <span class="manner-emoji" id="mannerEmoji">😊</span>
+        </div>
+        <span class="manner-label">매너온도</span>
+      </div>
+    </section>
+
+    <!-- Product Info -->
+    <section class="detail-body">
+      <div style="margin-bottom:8px;">
+        <span id="detailStatusBadge" class="status-badge available" style="position:static;display:inline-block;">판매중</span>
+      </div>
+      <h1 class="detail-title" id="detailTitle">상품 제목</h1>
+      <div class="detail-category-time">
+        <a href="index.html" class="cat-link" id="detailCategory">카테고리</a>
+        <span> · </span>
+        <span id="detailTime">1시간 전</span>
+      </div>
+      <div class="detail-price" id="detailPrice">0원</div>
+      <p class="detail-description" id="detailDesc"></p>
+      <div class="detail-stats" id="detailStats">채팅 0 · 관심 0 · 조회 0</div>
+    </section>
+
+    <!-- Owner Controls (visible only to author) -->
+    <section class="owner-controls" id="ownerControls" style="display:none;">
+      <div class="owner-controls-top">
+        <span class="owner-label">내 게시글 관리</span>
+        <div class="owner-actions-group">
+          <button type="button" class="btn-owner-edit" id="btnOwnerEdit">수정</button>
+          <button type="button" class="btn-owner-delete" id="btnOwnerDelete">삭제</button>
+        </div>
+      </div>
+      <div class="owner-status-group" id="ownerStatusGroup">
+        <button type="button" class="owner-status-btn" data-status="available">판매중</button>
+        <button type="button" class="owner-status-btn" data-status="reserved">예약중</button>
+        <button type="button" class="owner-status-btn" data-status="sold">거래완료</button>
+      </div>
+    </section>
+
+    <!-- Action Bar -->
+    <section class="detail-action-bar">
+      <button type="button" class="btn-like" id="likeBtn" aria-label="관심 상품 등록">♡</button>
+      <button type="button" class="btn-chat-primary" id="chatBtn">채팅하기</button>
+    </section>
+
+    <!-- Inline Chat Panel (connected to chat_rooms & chat_messages) -->
+    <section id="chatPanel" style="display:none; padding:16px 20px; border-bottom:1px solid var(--border); background:rgba(255,255,255,0.55);">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+        <strong id="chatPanelTitle" style="font-size:14px;">판매자와 채팅</strong>
+        <button type="button" id="closeChatBtn" style="border:none;background:none;font-size:16px;cursor:pointer;color:var(--text-muted);" aria-label="채팅 닫기">✕</button>
+      </div>
+      <div id="chatMessages" style="max-height:180px; overflow-y:auto; display:flex; flex-direction:column; gap:8px; margin-bottom:10px; padding:8px; background:rgba(246,247,251,0.7); border-radius:10px;"></div>
+      <form id="chatForm" style="display:flex; gap:8px;">
+        <input type="text" id="chatInput" placeholder="메시지를 입력하세요 (연락처 입력 주의)" style="flex:1; height:38px; padding:0 12px; border:1px solid var(--border); border-radius:8px; font-size:13px; outline:none;" />
+        <button type="submit" class="media-top-pill" style="height:38px;">전송</button>
+      </form>
+    </section>
+
+    <!-- Related Items -->
+    <section class="detail-related">
+      <h2 class="related-heading">
+        혹시 이 상품 찾으시나요?
+        <span style="font-size:12px;font-weight:500;color:#868b94;">· 추천</span>
+      </h2>
+      <div class="related-grid" id="relatedGrid"></div>
+    </section>
+  </main>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="js/auth.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/detail.js"></script>
+  <script src="js/antigravity.js"></script>
+</body>
+</html>
